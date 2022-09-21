@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <title> Employee Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+          background-image: url('OIP.jpg');
+        }
+
+        footer {
+  text-align: center;
+  padding: 3px;
+  background-color: DarkSalmon;
+  color: white;
+}
+        </style>
+
+        <script>
+             function validate() {
+      
+      if( document.myForm.fname.value == "" ) {
+         alert( "Please provide your first name!" );
+         document.myForm.fname.focus() ;
+         return false;
+      }
+      if( document.myForm.lname.value == "" ) {
+         alert( "Please provide your last name!" );
+         document.myForm.lname.focus() ;
+         return false;
+      }
+      if( document.myForm.email.value == "" ) {
+         alert( "Please provide your Email!" );
+         document.myForm.email.focus() ;
+         return false;
+      }
+      if( document.myForm.number.value == "" ) {
+         alert( "Please provide your mobile number!" );
+         document.myForm.number.focus() ;
+         return false;
+      }
+
+  
+   }
+
+
+// navigator.geolocation.getCurrentPosition(showPosition);
+// function showPosition(position) {
+// console.log("Latitude: " + position.coords.latitude + "\n" +"Longitude: " + position.coords.longitude);
+// }
+
+ 
+console.log("navigator.language is " + navigator.language);
+
+
+function saveData()
+{
+let fname, lname ,email, number, job;
+fname=document.getElementById("fname").value;
+lname=document.getElementById("lname").value;
+email=document.getElementById("email").value;
+job=document.getElementById("job").value;
+country=document.getElementById("country").value;
+
+number=document.getElementById("number").value;
+
+localStorage.setItem("fname",fname)
+
+localStorage.setItem("lname",lname)
+localStorage.setItem("email",email)
+localStorage.setItem("number",number)
+localStorage.setItem("job",job)
+localStorage.setItem("country",country)
+}
+
+        </script>
+    
+   </head>
+<body>
+
+    
+    
+    
+
+
+  <div class="container">
+
+    <div class="title">Employee Registration Form</div>
+    <div class="content">
+      <form action="#" name = "myForm" onsubmit = "return(validate());" method="post">
+        <div class="user-details">
+            
+      
+        
+          <div class="input-box">
+            <span class="details">First Name</span>
+            <input type="text" placeholder="Enter your first name" id="fname" name="fname" maxlength="10" >
+          </div>
+          <div class="input-box">
+            <span class="details">Last Name</span>
+            <input type="text" placeholder="Enter your last name"  id="lname" name="lname" maxlength="10" >
+          </div>
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="email" id="email" placeholder="Enter your email"  id="email" name="email" >
+          </div>
+          <div class="input-box">
+            <span class="details">Phone Number</span>
+            <input type="tel" placeholder="Enter your number" name="number"  id="number" pattern="[0-9]{10}" >
+          </div>
+       
+          <div class="input-box">
+            <span class="details">Country</span>
+            <select id="country" name="country">
+                
+                  <option value="India">India</option>
+                  <option value="USA">USA</option>
+                  <option value="Oman">Oman</option>
+                  <option value="Canada">Canada</option>
+                  <option value="Australia">Australia</option>
+                  <option value="Indonesia">Indonesia</option>
+                
+            </select>    
+          </div>
+          <div class="input-box">
+            <span class="details">Department</span>
+            <select id="job" name="job">
+                <optgroup label="Web">
+                  <option value="frontend_developer">Front-End Developer</option>
+                  <option value="php_developor">PHP Developer</option>
+                  <option value="python_developer">Python Developer</option>
+                  <option value="java_developer"> Java Developer</option>
+                  <option value="web_designer">Web Designer</option>
+                </optgroup>
+                <optgroup label="Mobile">
+                  <option value="Android_developer">Androild Developer</option>
+                  <option value="iOS_developer">iOS Developer</option>
+                  <option value="mobile_designer">Mobile Designer</option>
+                </optgroup>
+                <optgroup label="Business">
+                  <option value="business_owner">Business Owner</option>
+                  <option value="freelancer">Freelancer</option>
+                </optgroup>
+                <optgroup label="Other">
+                  <option value="admin">Admin</option>
+                  <option value="admin">HR</option>
+                  <option value="secretary">Secretary</option>
+                  <option value="maintenance">Maintenance</option>
+                </optgroup>
+              </select>
+          </div>
+          
+        </div>
+        <div class="input-box">
+            <span class="details">Biography</span>
+            <textarea  type="text"></textarea>
+          </div>
+        <div class="gender-details">
+          <input type="radio" name="gender" id="dot-1">
+          <input type="radio" name="gender" id="dot-2">
+          <input type="radio" name="gender" id="dot-3">
+          <span class="gender-title">Gender</span>
+          <div class="category">
+            <label for="dot-1">
+            <span class="dot one"></span>
+            <span class="gender">Male</span>
+          </label>
+          <label for="dot-2">
+            <span class="dot two"></span>
+            <span class="gender">Female</span>
+          </label>
+          <label for="dot-3">
+            <span class="dot three"></span>
+            <span class="gender">Prefer not to say</span>
+            </label>
+          </div>
+        </div>
+
+      
+
+       
+       
+        <div class="button">
+            <!-- <button onclick="store()" type="submit" value="Register">Register</button> -->
+            <button type="button" onclick="saveData()" id="save_btn" class="btn btn-default">Submit</button>
+      
+
+            
+         
+        </div>
+      </form>
+    </div>
+
+
+</div>
+
+  
+
+
+
+</body>
+</html>
